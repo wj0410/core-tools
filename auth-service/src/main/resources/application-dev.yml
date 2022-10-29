@@ -1,7 +1,0 @@
-# Spring
-spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 47.98.35.95:8848
-        namespace: 842a9626-6dea-4168-b1fd-4ccf9ad3a69c
