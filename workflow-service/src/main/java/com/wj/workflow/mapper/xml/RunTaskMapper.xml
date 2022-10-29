@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wj.workflow.mapper.RunTaskMapper">
+  <resultMap id="BaseResultMap" type="com.wj.workflow.entity.RunTask">
+    <!--@mbg.generated-->
+    <!--@Table workflow_run_task-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="rev" jdbcType="INTEGER" property="rev" />
+    <result column="execution_id" jdbcType="BIGINT" property="executionId" />
+    <result column="proc_inst_id" jdbcType="BIGINT" property="procInstId" />
+    <result column="proc_def_id" jdbcType="BIGINT" property="procDefId" />
+    <result column="business_key" jdbcType="VARCHAR" property="businessKey" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="task_def_id" jdbcType="VARCHAR" property="taskDefId" />
+    <result column="client" jdbcType="VARCHAR" property="client" />
+    <result column="assignee" jdbcType="VARCHAR" property="assignee" />
+    <result column="due_days" jdbcType="INTEGER" property="dueDays" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, rev, execution_id, proc_inst_id, proc_def_id, business_key, `name`, parent_id, 
+    task_def_id, client, assignee, due_days, create_by, create_time, update_by, update_time, 
+    is_delete
+  </sql>
+</mapper>

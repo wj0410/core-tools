@@ -1,0 +1,4 @@
+# 此文件放在nacos配置中心
+# 读取顺序：bootstrap.yml -> application.yml -> nacos里的配置文件
+config:
+  test: test

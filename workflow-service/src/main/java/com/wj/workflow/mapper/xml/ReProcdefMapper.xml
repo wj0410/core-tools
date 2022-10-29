@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wj.workflow.mapper.ReProcdefMapper">
+  <resultMap id="BaseResultMap" type="com.wj.workflow.entity.ReProcdef">
+    <!--@mbg.generated-->
+    <!--@Table workflow_re_procdef-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="deployment_id" jdbcType="BIGINT" property="deploymentId" />
+    <result column="key" jdbcType="VARCHAR" property="key" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="meta_info" jdbcType="LONGVARCHAR" property="metaInfo" />
+    <result column="active" jdbcType="INTEGER" property="active" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, deployment_id, `key`, version, meta_info, active, create_by, create_time, update_by, 
+    update_time, is_delete
+  </sql>
+</mapper>

@@ -1,0 +1,28 @@
+# 动态网关配置备份
+{
+  "refreshGatewayRoute":true,
+  "routeList":[
+    {
+      "id": "user_route",
+      "order": 0,
+      "predicates": [{
+        "args": {
+          "pattern": "/user-service/**"
+        },
+        "name": "Path"
+      }],
+      "uri": "lb://user-service"
+    },
+    {
+      "id": "auth_route",
+      "order": 0,
+      "predicates": [{
+        "args": {
+          "pattern": "/auth-service/**"
+        },
+        "name": "Path"
+      }],
+      "uri": "lb://auth-service"
+    }
+  ]
+}
