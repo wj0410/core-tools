@@ -8,13 +8,13 @@
    >
    >    ```Xml
    >    1.前往到jar包所在目录，执行以下代码
-   >    mvn install:install-file "-Dfile=./core-tools-0.0.1-SNAPSHOT.jar" "-DgroupId=com.wj" "-DartifactId=core-tools"  "-Dversion=0.0.1-SNAPSHOT"  "-Dpackaging=jar"
+   >    mvn install:install-file "-Dfile=./core-tools-1.0.1.jar" "-DgroupId=io.github.wj0410" "-DartifactId=core-tools"  "-Dversion=0.0.1-SNAPSHOT"  "-Dpackaging=jar"
    >
    >    2.引入pom依赖
    >    <dependency>
-   >    	<groupId>com.wj</groupId>
+   >    	<groupId>io.github.wj0410</groupId>
    >    	<artifactId>core-tools</artifactId>
-   >    	<version>0.0.1-SNAPSHOT</version>
+   >    	<version>1.0.1</version>
    >    </dependency>
    >    ```
    >
@@ -24,11 +24,11 @@
    >    1.将jar包放到项目目录
    >    2.引入pom依赖
    >    <dependency>
-   >    	<groupId>com.wj</groupId>
+   >    	<groupId>io.github.wj0410</groupId>
    >    	<artifactId>core-tools</artifactId>
-   >    	<version>0.0.1-SNAPSHOT</version>
+   >    	<version>1.0.1</version>
    >    	<scope>system</scope>
-   >    	<systemPath>${project.basedir}/lib/core-tools-0.0.1-SNAPSHOT.jar</systemPath>
+   >    	<systemPath>${project.basedir}/lib/core-tools-1.0.1.jar</systemPath>
    >    </dependency>
    >    ```
    >
@@ -36,10 +36,9 @@
    >
    >    ```xml
    >    <dependency>
-   >    	<groupId>com.wj</groupId>
+   >    	<groupId>io.github.wj0410</groupId>
    >    	<artifactId>core-tools</artifactId>
-   >    	<version>0.0.1-SNAPSHOT</version>
-   >    	<scope>system</scope>
+   >    	<version>1.0.1</version>
    >    </dependency>
    >    ```
    >
