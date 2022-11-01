@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Query {
-    Keyword value() default Keyword.eq;
+    Keyword[] value() default Keyword.eq;
 
     String column() default "";
 }
