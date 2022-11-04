@@ -6,6 +6,7 @@ import io.github.wj0410.core.tools.restful.result.ResultCode;
 
 /**
  * 业务异常
+ *
  * @author wangjie
  * @version 1.0
  * date 2021年08月03日10时39分
@@ -21,6 +22,16 @@ public class ServiceException extends RuntimeException {
 
     public ServiceException(IResultCode resultCode) {
         super();
+        this.resultCode = resultCode;
+    }
+
+    public ServiceException(String message, Throwable cause) {
+        super(message, cause);
+        this.resultCode = ResultCode.FAILURE;
+    }
+
+    public ServiceException(String message, IResultCode resultCode, Throwable cause) {
+        super(message, cause);
         this.resultCode = resultCode;
     }
 

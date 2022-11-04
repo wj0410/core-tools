@@ -9,7 +9,8 @@ import io.github.wj0410.core.tools.restful.result.ResultCode;
 public class UnauthorizedException extends RuntimeException {
     private static final long serialVersionUID = 2359767895161832954L;
 
-    private static final IResultCode resultCode = ResultCode.UNAUTHORIZED;;
+    private static final IResultCode resultCode = ResultCode.UNAUTHORIZED;
+    ;
 
     public UnauthorizedException(String message) {
         super(message);
@@ -21,6 +22,10 @@ public class UnauthorizedException extends RuntimeException {
 
     public UnauthorizedException(Throwable cause) {
         super(cause);
+    }
+
+    public UnauthorizedException(String message, Throwable cause) {
+        super(message, cause);
     }
 
     public Throwable fillInStackTrace() {

@@ -19,6 +19,10 @@ public class CKSException extends RuntimeException {
         super();
     }
 
+    public CKSException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
     public CKSException(Throwable cause) {
         super(cause);
     }
