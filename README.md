@@ -42,6 +42,16 @@
    >    </dependency>
    >    ```
    >
+   >    可能会依赖poi
+   >
+   >    ```xml
+   >    <dependency>
+   >        <groupId>org.apache.poi</groupId>
+   >        <artifactId>poi</artifactId>
+   >        <version>5.0.0</version>
+   >    </dependency>
+   >    ```
+   >
    >    ​
 
 2. 在Application启动类里按需注册Bean对象

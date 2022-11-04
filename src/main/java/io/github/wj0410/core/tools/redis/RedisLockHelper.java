@@ -1,7 +1,7 @@
 package io.github.wj0410.core.tools.redis;
 
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import io.github.wj0410.core.tools.restful.exception.ServiceException;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
