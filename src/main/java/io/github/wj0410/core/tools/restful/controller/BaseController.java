@@ -122,12 +122,12 @@ public abstract class BaseController<S extends IService, T extends BaseDTO, Q ex
                 String errorColumns = "";
                 for (int i = 0; i < objs.size(); i++) {
                     if (i == objs.size() - 1) {
-                        errorColumns += objs.get(i)[0] + ":" + objs.get(i)[1];
+                        errorColumns += objs.get(i)[0];
                     } else {
-                        errorColumns += objs.get(i)[0] + ":" + objs.get(i)[1] + ",";
+                        errorColumns += objs.get(i)[0] + ",";
                     }
                 }
-                throw new ServiceException("数据唯一校验失败！唯一属性[" + errorColumns + "]");
+                throw new ServiceException(errorColumns + " 已存在！");
             }
         }
     }
