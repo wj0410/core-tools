@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,6 +86,23 @@ public abstract class BaseController<S extends IService, T extends BaseDTO, Q ex
         ValidUtil.validSave(dto);
         uniqueSave(dto);
         return R.status(baseService.save(dto.buildEntity()));
+    }
+
+    /**
+     * 新增
+     *
+     * @param dtos 实体
+     * @return R
+     */
+    @PostMapping("/saveBatch")
+    protected R<Boolean> saveBatch(@RequestBody List<T> dtos) {
+        List batchList = new ArrayList();
+        for (T dto : dtos) {
+            ValidUtil.validSave(dto);
+            uniqueSave(dto);
+            batchList.add(dto.buildEntity());
+        }
+        return R.status(CollectionUtils.isNotEmpty(batchList) ? baseService.saveBatch(batchList) : false);
     }
 
     /**
@@ -154,7 +172,7 @@ public abstract class BaseController<S extends IService, T extends BaseDTO, Q ex
      * 导出excel
      * 具体实现类必须重写 initExport 、page 方法
      *
-     * @param query 检索条件
+     * @param query    检索条件
      * @param response response
      */
     @GetMapping("/exportExcel")
