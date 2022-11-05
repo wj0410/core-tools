@@ -111,20 +111,24 @@ public abstract class BaseController<S extends IService, T extends BaseDTO, Q ex
      * @param dto dto
      */
     protected void uniqueSave(T dto) {
-        List<Object[]> objs = ValidUtil.uniqueColumn(dto);
-        if (CollectionUtils.isNotEmpty(objs)) {
+        List<Object[]> errorObjs = ValidUtil.uniqueColumn(dto);
+        if (CollectionUtils.isNotEmpty(errorObjs)) {
             QueryWrapper queryWrapper = new QueryWrapper();
-            for (Object[] o : objs) {
+            for (Object[] o : errorObjs) {
                 queryWrapper.eq(String.valueOf(o[0]), o[1]);
             }
             int count = baseService.count(queryWrapper);
             if (count > 0) {
                 String errorColumns = "";
-                for (int i = 0; i < objs.size(); i++) {
-                    if (i == objs.size() - 1) {
-                        errorColumns += objs.get(i)[0];
+                for (int i = 0; i < errorObjs.size(); i++) {
+                    if (i == errorObjs.size() - 1) {
+                        errorColumns += errorObjs.get(i)[0];
                     } else {
-                        errorColumns += objs.get(i)[0] + ",";
+                        errorColumns += errorObjs.get(i)[0] + ",";
+                    }
+                    // tip
+                    if (errorObjs.get(i)[2] != null) {
+                        throw new ServiceException(String.valueOf(errorObjs.get(i)[2]));
                     }
                 }
                 throw new ServiceException(errorColumns + " 已存在！");

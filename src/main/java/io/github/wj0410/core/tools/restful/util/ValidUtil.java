@@ -168,11 +168,15 @@ public class ValidUtil {
             Unique unique = field.getAnnotation(Unique.class);
             if (unique != null) {
                 field.setAccessible(true);//设置属性可以访问
+                String tip = unique.tip();
                 try {
                     Object obj = field.get(entity);//获取值
-                    Object[] o = new Object[2];
+                    Object[] o = new Object[3];
                     o[0] = CommonUtil.humpToLine(field.getName());
                     o[1] = obj;
+                    if(StringUtils.isNotEmpty(tip)){
+                        o[2] = tip;
+                    }
                     objects.add(o);
                 } catch (IllegalAccessException e) {
                     throw new CKSException("Unknown error in parameter validation, field.getName():" + e);
