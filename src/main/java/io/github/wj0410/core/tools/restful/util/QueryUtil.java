@@ -87,6 +87,11 @@ public class QueryUtil {
                                     queryWrapper.le(column, field.get(queryObj));
                                 }
                                 break;
+                            case in:
+                                if (field.get(queryObj) != null) {
+                                    queryWrapper.in(column, field.get(queryObj));
+                                }
+                                break;
                             case not_in:
                                 if (field.get(queryObj) != null) {
                                     queryWrapper.notIn(column, field.get(queryObj));

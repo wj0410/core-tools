@@ -266,12 +266,14 @@
 >     // 通过code查询，默认eq
 >     @Query()
 >     private String code;
+>     @Query({Keyword.eq,Keyword.order_asc})
+>   	private String status;
 >     // 正序排序
 >     @Query(Keyword.order_asc)
 >     private String sort;
+>     
 > }
 > public enum Keyword {
->     in,
 >     eq,
 >     like,
 >     left_like,
@@ -280,6 +282,7 @@
 >     lt,
 >     ge,
 >     le,
+>     in,
 >     not_in,
 >     is_not_null,
 >     is_null,
@@ -288,11 +291,23 @@
 > }
 > ```
 >
+> 默认按照属性名的驼峰去查找，如果需要自定义字段名，则需要加上column属性。
+>
+> ```java
+> @Query(column="custom_column")
+> private String custom;
+> ```
+>
 > 
 
 ###### @Unique
 
 > 使用BaseController的SAVE方法时，如果需要做唯一校验，在DTO上使用此注解修饰属性，则代表该属性在数据库中不可重复。
+>
+> ```java
+> @Unique(tip="用户id:${value} 已存在!")
+> private String userId;
+> ```
 >
 > 如果去重逻辑比较复杂，则重写uniqueSave方法。
 >
@@ -305,8 +320,17 @@
 
 
 
-更新日志
+# 更新日志
 
-1.0.2 query注解keyword支持同时多种查询
+- 1.0.2 
 
-1.0.3 新增了批量保存方法
+  > 更新内容
+  >
+  > 1. @Query 注解支持同时多种查询
+
+- 1.0.3 
+
+  > 更新内容
+  >
+  > 1. 新增了批量保存方法
+  > 2. @Unique注解增加了tip属性 ${value}可以用来代替该属性的值

@@ -5,7 +5,6 @@ package io.github.wj0410.core.tools.restful.annotation;
  * create: 2021-03-31 11:47
  **/
 public enum Keyword {
-    in,
     eq,
     like,
     left_like,
@@ -14,6 +13,7 @@ public enum Keyword {
     lt,
     ge,
     le,
+    in,
     not_in,
     is_not_null,
     is_null,

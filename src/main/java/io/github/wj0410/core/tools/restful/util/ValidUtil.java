@@ -174,7 +174,8 @@ public class ValidUtil {
                     Object[] o = new Object[3];
                     o[0] = CommonUtil.humpToLine(field.getName());
                     o[1] = obj;
-                    if(StringUtils.isNotEmpty(tip)){
+                    if (StringUtils.isNotEmpty(tip)) {
+                        tip = tip.replace("${value}", String.valueOf(obj));
                         o[2] = tip;
                     }
                     objects.add(o);
