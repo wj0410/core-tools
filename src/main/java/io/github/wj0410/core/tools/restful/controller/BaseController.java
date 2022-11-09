@@ -89,7 +89,7 @@ public abstract class BaseController<S extends IService, T extends BaseDTO, Q ex
     }
 
     /**
-     * 新增
+     * 批量新增
      *
      * @param dtos 实体
      * @return R

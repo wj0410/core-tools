@@ -1,4 +1,4 @@
-package io.github.wj0410.core.tools.restful.util.test;
+package io.github.wj0410.core.tools.util.test;
 
 import io.github.wj0410.core.tools.excel.ApachePoiExcelUtil;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package io.github.wj0410.core.tools.restful.util.test;
+package io.github.wj0410.core.tools.util.test;
 
 import com.google.common.util.concurrent.RateLimiter;
 import io.github.wj0410.core.tools.util.RateLimiterUtil;

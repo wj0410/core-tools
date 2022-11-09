@@ -213,6 +213,8 @@
 
 - 新增 /save
 
+- 批量新增 /saveBatch
+
 - 修改 /update
 
 - 新增或修改 /saveOrUpdate
@@ -226,7 +228,7 @@
   ```java
   @Override
   protected void initExport() {
-    this.exportTitle = new String[]{"编码","值"}; //导出excel文件名
+    this.exportTitle = new String[]{"编码:code:50","值:value:50"}; //表头 中文名：属性名：单元格宽度
     this.excelFileName = "字典表.xlsx";// 导出excel文件名
     this.sheetName = "sheet1";// 导出表名 可不赋值
   }
@@ -322,13 +324,13 @@
 
 # 更新日志
 
-- 1.0.2 
+- 1.0.2	2022-11-01
 
   > 更新内容
   >
   > 1. @Query 注解支持同时多种查询
 
-- 1.0.3 
+- 1.0.3	2022-11-04
 
   > 更新内容
   >
