@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
 /**
- * 全局过滤器
+ * 全局拦截器
  * 所有服务统一加上过滤器，验证标识头（secretKey）
  * 让服务只能从网关调用
  */
