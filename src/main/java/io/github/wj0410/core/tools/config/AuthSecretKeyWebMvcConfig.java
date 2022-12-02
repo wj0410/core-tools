@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
 
-public class DefaultWebMvcConfig implements WebMvcConfigurer {
+public class AuthSecretKeyWebMvcConfig implements WebMvcConfigurer {
     // 全局过滤器 验证标识头
     @Autowired
     AuthSecretKeyInterceptor authSecretKeyInterceptor;

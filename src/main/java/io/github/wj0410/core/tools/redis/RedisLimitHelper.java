@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 /**
  * redis限流工具
  */
+@Component
 public class RedisLimitHelper {
     @Autowired
     RedisTemplate redisTemplate;

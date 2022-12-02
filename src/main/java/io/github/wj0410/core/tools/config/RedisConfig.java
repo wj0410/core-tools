@@ -12,7 +12,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * version 1.0
  * date 2021年06月25日17时19分
  */
-public class DefaultRedisConfig {
+@Configuration
+public class RedisConfig {
 
     /**
      * redis 防止key value 前缀乱码.

@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.wj0410.core.tools.config.CoreToolsAutoConfiguration

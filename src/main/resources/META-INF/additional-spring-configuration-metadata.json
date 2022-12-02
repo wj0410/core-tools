@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "wj.auth.skip-gateway-urls",
+      "type": "java.util.List",
+      "defaultValue": "",
+      "description": "可以直接通过服务访问，不需要经过网关的url."
+    }
+  ]
+}

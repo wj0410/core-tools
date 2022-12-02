@@ -18,10 +18,12 @@ import java.util.TimeZone;
  * 日期格式化
  * 时区等等
  */
-public class DefaultJacksonConfig {
+@Configuration
+@ConditionalOnMissingBean(ObjectMapper.class)
+public class JacksonConfig {
+
     @Bean
     @Primary
-    @ConditionalOnMissingBean(ObjectMapper.class)
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
         ObjectMapper build = builder.createXmlMapper(false).build();
 

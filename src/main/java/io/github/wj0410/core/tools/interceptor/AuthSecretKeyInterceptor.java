@@ -8,6 +8,7 @@ import io.github.wj0410.core.tools.redis.RedisUUID;
 import io.github.wj0410.core.tools.restful.result.R;
 import io.github.wj0410.core.tools.restful.result.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -21,17 +22,19 @@ import java.io.PrintWriter;
  * 让服务只能从网关调用
  */
 @Component
+@ConditionalOnClass(HandlerInterceptor.class)
 public class AuthSecretKeyInterceptor implements HandlerInterceptor {
     @Autowired
     private RedisUUID redisUUID;
     @Autowired
     private AuthIgnoreProperties authIgnoreProperties;
+
     public static String TARGET = "/**";
     public static String REPLACEMENT = "";
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (authIgnoreProperties.getIgnoreUrls().stream().map(url -> url.replace(TARGET, REPLACEMENT)).anyMatch(request.getRequestURI()::startsWith)) {
+        if (authIgnoreProperties.getSkipGatewayUrls().stream().map(url -> url.replace(TARGET, REPLACEMENT)).anyMatch(request.getRequestURI()::startsWith)) {
             return true;
         }
         String secretKey = request.getHeader(SecurityConstants.SECRET_KEY);

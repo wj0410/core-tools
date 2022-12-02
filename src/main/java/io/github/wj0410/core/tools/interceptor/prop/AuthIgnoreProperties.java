@@ -11,5 +11,5 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = "wj.auth")
 public class AuthIgnoreProperties {
-    private final List<String> ignoreUrls = new ArrayList<>();
+    private final List<String> skipGatewayUrls = new ArrayList<>();
 }

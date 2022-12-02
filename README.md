@@ -57,55 +57,14 @@
 2. 在Application启动类里按需注册Bean对象
 
    ```java
-   // 全局异常处理
-   @Bean
-   public ExceptionController exceptionController() {
-     return new ExceptionController();
-   }
-   // redis工具
-   @Bean
-   public RedisLockHelper redisLockHelper() {
-     return new RedisLockHelper();
-   }
    // mybatis-plus 字段填充控制器，实现公共字段自动写入
    @Bean
    public MetaObjectHandler defaultMetaObjectHandler() {
      return new DefaultMetaObjectHandler();
    }
-   // ======== 全局过滤器 让服务只能从网关调用 start ========
-   @Bean
-   public GlobalInterceptor globalInterceptor() {
-     return new GlobalInterceptor();
-   }
-
-   // === 生成 auth-secretKey
-   @Bean
-   public RedisUUID redisUUID() {
-     return new RedisUUID();
-   }
-
-   // === 过滤url配置
-   @Bean
-   public AuthIgnoreProperties authIgnoreProperties() {
-     return new AuthIgnoreProperties();
-   }
-   // ======== 全局过滤器 让服务只能从网关调用 end ========
    ```
 
 3. 按需编写配置类
-
-   - JacksonConfig
-
-     ```java
-     // 全局配置序列化返回
-     // Long 转换成 String 防止Long精度丢失
-     // 日期格式化
-     // 时区等等
-     @Configuration
-     public class JacksonConfig extends DefaultJacksonConfig {
-
-     }
-     ```
 
    - MybatisPlusConfig
 
@@ -121,27 +80,17 @@
      }
      ```
 
-   - RedisConfig
-
-     ```java
-     /**
-      * 设置redis序列化规则
-      */
-     @Configuration
-     public class RedisConfig extends DefaultRedisConfig {
-
-     }
-     ```
-
    - WebMvcConfig 
 
      ```java
      /**
       * WebMvc配置
-      * 全局过滤器，验证标识头
+      * 全局过滤器，验证标识头，让服务只能从网关调用
+      * 可自行修改
+      * wj.auth.skip-gateway-urls 配置项，可以直接通过服务访问，不需要经过网关的url
       */
      @Configuration
-     public class WebMvcConfig extends DefaultWebMvcConfig {
+     public class WebMvcConfig extends AuthSecretKeyWebMvcConfig {
 
      }
      ```
@@ -330,7 +279,7 @@
   >
   > 1. @Query 注解支持同时多种查询
 
-- 1.0.3	2022-11-04
+  - 1.0.32022-11-04
 
   > 更新内容
   >

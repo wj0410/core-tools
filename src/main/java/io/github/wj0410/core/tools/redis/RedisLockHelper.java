@@ -5,6 +5,7 @@ import io.github.wj0410.core.tools.restful.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * redis分布式锁工具
  */
+@Component
 public class RedisLockHelper {
     //锁名称
     public static final String LOCK_PREFIX = "redis_lock:";
