@@ -5,7 +5,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class AuthUtil {
+public abstract class AuthUtil {
 
     public static HttpServletRequest getRequest() {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -13,4 +13,7 @@ public class AuthUtil {
         return attrs.getRequest();
     }
 
+    protected abstract Long getLoginUserId();
+
+    protected abstract <T> T getLoginUser();
 }
