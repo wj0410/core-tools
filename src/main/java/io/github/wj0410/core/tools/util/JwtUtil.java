@@ -58,7 +58,7 @@ public class JwtUtil {
     /**
      * 获取token信息
      * @param token token
-     * @return DecodedJWT
+     * @return DecodedJWT verify.getClaim()
      */
     public static DecodedJWT getTokenInfo(String token) {
         DecodedJWT verify = JWT.require(Algorithm.HMAC256(SING)).build().verify(token);
