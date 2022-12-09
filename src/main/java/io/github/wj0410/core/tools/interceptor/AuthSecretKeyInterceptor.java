@@ -1,7 +1,7 @@
 package io.github.wj0410.core.tools.interceptor;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.wj0410.core.tools.interceptor.contansts.SecurityConstants;
 import io.github.wj0410.core.tools.interceptor.prop.AuthIgnoreProperties;
 import io.github.wj0410.core.tools.redis.RedisUUID;
@@ -46,7 +46,8 @@ public class AuthSecretKeyInterceptor implements HandlerInterceptor {
         }
         response.setContentType("application/json; charset=utf-8");
         PrintWriter writer = response.getWriter();
-        writer.write(JSONObject.toJSONString(R.fail(ResultCode.UNAUTHORIZED, "illegal request")));
+        ObjectMapper objectMapper = new ObjectMapper();
+        writer.write(objectMapper.writeValueAsString(R.fail(ResultCode.UNAUTHORIZED, "illegal request")));
         return false;
     }
 }
